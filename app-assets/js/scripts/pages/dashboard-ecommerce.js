@@ -335,7 +335,7 @@ $(window).on('load', function () {
     series: [
       {
         name: 'Earning',
-        data: [ 195, 177, 284, 256,]
+        data: [ 250, 177, 350, 256,]
       },
       
     ],
