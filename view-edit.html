@@ -306,88 +306,62 @@
 <!-- Dashboard Ecommerce Starts -->
 <section id="dashboard-ecommerce">
 
-    <div class="block">
-        <!-- Products Title -->
-        <div class="block-title">
-            <h2><i class="fa fa-shopping-cart"></i> <strong>Order View</strong></h2>
-           
-             </div>
-        <div class="table-responsive">
-            <table class="table table-bordered table-vcenter">
-                <thead>
-                    <tr>
-                        <th class="text-center">Order Id</th>
-                        <th class="text-center col-md-1 col-lg-1">Product Name</th>
-                        <th class="text-center">Product Style</th>
-                        <th class="text-center">Color</th>
-                        <th class="text-center">Sizes</th>
-                        <th class="text-center">QTY </th>
-                        <th class="text-center">Extra</th>
-                        <th class="text-center">Unit Price</th>
-                        <th class="text-center">Total</th>
-                        <th class="text-center">Payment </th>
-                        <th class="text-center">Order Date</th>
-                        <th class="text-center">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                   
-                    
-                    <tr>
-                        <form action="{{ route('update_order')}}" method="POST">
-                      
-                        <td class="text-center">OID.10	</td>
-                        <td class="text-center">Real bride	</td>
-                        <td class="text-center ">
-
-                            fdgdfh65454fgh	
-                            </select>
-
-                        </td>
-
-
-                        <td class="text-center ">Champagne	
-
-                            
-                        </td>
-                        <td class="text-center ">16	
-                           
-
-                        </td>
-
-                        <td class="text-center"> 2	  </td>
-                        <td class="text-center"> No Extra	 </td>
-                       
-                        
-                        <td class="text-center ">$25	
-
-                            
-                        </td>
-                        <td class="text-center ">$50	
-                           
-
-                        </td>
-
-                        <td class="text-center"> Done	   </td>
-                        <td class="text-center"> 2020-12-22 13:53:10	 </td>
-                       
-                        <td class="text-center">
-                            <div class="btn-group btn-group-xs">
-                            <a href="order-edit.html" data-toggle="tooltip" title="Edit" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-                            <a href="view-edit.html" data-toggle="tooltip" title="View" class="btn btn-secondary" ><i class="fa fa-eye"></i></a>
-                            <a href="{{route('retailerOrderDel',array('id' => $order->id))}}" data-toggle="tooltip" title="Delete" class="btn btn-xs btn-success"><i class="fa fa-download"></i></a>
-                            <a href="{{route('retailerOrderDel',array('id' => $order->id))}}" data-toggle="tooltip" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
-                            </div>
-                            </td>
-                            </form>
-                    </tr>
-                
-
-                </tbody>
-            </table>
+    <div class="row">
+        <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12 offset-md-1">
+        <div style="padding:10px; background-color: white; border-radius:15px;">
+        <h1 class="text-center"> Order Details </h1>
+        <div class="table-responsive" style="margin-top: 40px;">
+        <table class="table table-hover" id="table">
+        <thead>
+        <tr>
+        <th class="text-center" style="width: 70px;"> ID</th>
+        <th class="text-center">Product Image</th>
+        <th class="text-center">Product Name</th>
+        <th class="text-center">Product Notes</th>
+        <th class="text-center">Style #</th>
+        <th class="text-center">Price</th>
+        <th class="text-center">Quantity</th>
+        <th class="text-center">Size</th>
+        <th class="text-center">Color</th>
+        <th class="text-center">Status</th>
+        <th class="text-center">Extra</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+       
+        <tr>
+        <td class="text-center"><strong>OID.10	</strong></td>
+        <td class="text-center">
+        <img alt="" id="image_1" style="width:60px; height:80px; margin-top:20px;" src="masal.png">
+        </td>
+        <td class="text-center col-lg-2 col-md-2">Real bride	</td>
+        <td class="text-center">Hello	
+       
+        </td>
+        <td class="text-center">fdgdfh65454fgh	</td>
+        <td class="text-center">$25	</td>
+        <td class="text-center"> 2	</td>
+        <td class="text-center"> 16	</td>
+        <td class="text-center"> Champagne	</td>
+        <td class="text-center">processing	</td>
+        <td class="text-center">No Extra        </td>
+        </tr>
+        </tbody>
+        </table>
         </div>
-        <!-- END Products Content -->
-    </div>
+        <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-6 col-xs-4">
+        </div>
+        <div class="col-lg-3 col-md-3">
+        <button id="print" style="" class="btn btn-primary">Print</button>
+        <input type="button" id="pdf" class="btn btn-success" value="Download As PDF" onclick="Export()" />
+        <input type="text" value="{{ $row->id }}" style="display: none;" id="order_id">
+        </div>
+        </div>
+        
+        <!-- User Settings, modal which opens from Settings link (found in top right user menu) and the Cog link (found in sidebar user info) -->
+        
 </section>
 <!-- Dashboard Ecommerce ends -->
 
