@@ -317,12 +317,16 @@
                 <thead>
                     <tr>
                         <th class="text-center">Order Id</th>
-                        <th class="text-center">Product Name</th>
-                        <th class="text-center">Product Color</th>
-                        <th class="text-center">Product Size</th>
-                        <th class="text-center">Order Status</th>
-                        <th class="text-center">Cancellation Requests </th>
-                        <th class="text-center">Product Quantity</th>
+                        <th class="text-center col-md-1 col-lg-1">Product Name</th>
+                        <th class="text-center">Product Style</th>
+                        <th class="text-center">Color</th>
+                        <th class="text-center">Sizes</th>
+                        <th class="text-center">QTY </th>
+                        <th class="text-center">Extra</th>
+                        <th class="text-center">Unit Price</th>
+                        <th class="text-center">Total</th>
+                        <th class="text-center">Payment </th>
+                        <th class="text-center">Order Date</th>
                         <th class="text-center">Action</th>
                     </tr>
                 </thead>
@@ -331,38 +335,50 @@
                     
                     <tr>
                         <form action="{{ route('update_order')}}" method="POST">
-                            <input type="text" style="display: none;" value="{{ $row->id }}" name="id" id="">
-                        <td class="text-center">1</td>
-                        <td class="text-center">2</td>
+                      
+                        <td class="text-center">OID.10	</td>
+                        <td class="text-center">Real bride	</td>
                         <td class="text-center ">
 
-                            <select name="color" class="form-control" id="color{{$row->id}}">
-                                <option value="{{$color}}" ></option>
+                            fdgdfh65454fgh	
                             </select>
 
                         </td>
 
 
-                        <td class="text-center ">
+                        <td class="text-center ">Champagne	
 
-                            <select name="size" class="form-control" id="size{{$row->id}}">
-                                <option value="{{$size}}" ></option>
-                            </select>
+                            
                         </td>
-                        <td class="text-center ">
-                            <select name="status" class="form-control" id="status{{$row->id}}">
-
-                                <option value="pending" ></option>
-
-                                    <option value="processing" ></option>
-                            </select>
+                        <td class="text-center ">16	
+                           
 
                         </td>
 
-                        <td class="text-center"> <span class="label label-warning"></span>  <p> </p>  <p> No Request </p>  </td>
-                        <td class="text-center"> <input type="number" min="1" class="form-control" value="{{$row->quantity}}" name="quantity"> </td>
+                        <td class="text-center"> 2	  </td>
+                        <td class="text-center"> No Extra	 </td>
                        
-                        <td class="text-center"> <input type="submit" name="update" class="btn btn-success" value="Update"> </td>
+                        
+                        <td class="text-center ">$25	
+
+                            
+                        </td>
+                        <td class="text-center ">$50	
+                           
+
+                        </td>
+
+                        <td class="text-center"> Done	   </td>
+                        <td class="text-center"> 2020-12-22 13:53:10	 </td>
+                       
+                        <td class="text-center">
+                            <div class="btn-group btn-group-xs">
+                            <a href="order-edit.html" data-toggle="tooltip" title="Edit" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                            <a href="{{route('retailerOrderView',array('id' => $order->id))}}" data-toggle="tooltip" title="View" class="btn btn-secondary" ><i class="fa fa-eye"></i></a>
+                            <a href="{{route('retailerOrderDel',array('id' => $order->id))}}" data-toggle="tooltip" title="Delete" class="btn btn-xs btn-success"><i class="fa fa-download"></i></a>
+                            <a href="{{route('retailerOrderDel',array('id' => $order->id))}}" data-toggle="tooltip" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                            </div>
+                            </td>
                             </form>
                     </tr>
                 
