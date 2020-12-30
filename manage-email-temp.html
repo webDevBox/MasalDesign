@@ -305,247 +305,89 @@
 <div class="content-body">
 <!-- Dashboard Ecommerce Starts -->
 <section id="dashboard-ecommerce">
-
-        
-        <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-
-            <div class="modal-dialog row" role="document">
-        
-                <div class="modal-content col-md-12" >
-        
-                    <div class="modal-header">
-        
-                        <h5 class="modal-title" id="exampleModalLabel">Top Selling Products</h5>
-        
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        
-                            <span aria-hidden="true">&times;</span>
-        
-                        </button>
-        
-                    </div>
-        
-                    <div class="modal-body " >
-                            <div class="table-responsive">
-                        <table id="ecom-products " class="table table-bordered table-striped table-vcenter">
-        
-                            <thead>
-        
-                                <tr>
-        
-                                    <th class="text-center" style="width: 70px;">ID</th>
-        
-                                    <th class="text-center">Product Name</th>
-        
-                                    <th class="text-center">Style Number</th>
-        
-                                    <th class="text-center">Sellings</th>
-        
-                                    <th class="text-center">Added</th>
-        
-                                </tr>
-        
-                            </thead>
-        
-                            <tbody>
-        
-                                
-        
-                               
-        
-                                
-        
-        
-                            </tbody>
-        
-                        </table>
-                    </div>
-        
-                    </div>
-        
-                </div>
-        
-            </div>
-        
+    
+        <div class="row match-height">
+        <!-- Bar Chart - Orders -->
+       
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <a href="#" data-toggle="modal" data-target="#exampleModal2">
+        <div class="card  text-center " >
+        <div class="card-body pb-50">
+        <h3 style="margin-top: 20px;" >Add New <strong>Template</strong></h3> 
+        <h2 class="font-weight-bolder mb-1" style="margin-top: 30px;" > <i class="fa fa-plus" aria-hidden="true"></i> </h2>
+        <!-- <div id="statistics-order-chart"></div> -->
         </div>
+        </div>
+    </a>
+        </div>
+    
 
-<div class="row match-height">
-<!-- Company Table Card -->
-<div class="block full">
-
-    <!-- All Products Title -->
-
-    <div class="block-title">
-
-
-
-
-        <div class="row">
-            <div  class="  col-md-2 " style="margin-top: 20px;">
-                <h2><strong>All Products</strong></h2>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <a href="#">
+            <div class="card  text-center " >
+            <div class="card-body pb-50">
+            <h3 style="margin-top: 20px;" >Retailer <strong>Email</strong> </h3> 
+            <h2 class="font-weight-bolder mb-1" style="margin-top: 30px;" > 2 </h2>
             </div>
-            <div  class="col-md-2 " style="margin-top: 20px;">
-                    <a href="{{route('products')}}" style="color: black;" name="all" id="all">
-                        <h2><strong>Show All</strong></h2>
-                    </a>
             </div>
-            <div style="width:200px" class=" col-md-2" style="margin-top: 20px;">
-                <form action="" method="GET">
-                    <select style="width:200px" name="color" class="form-control" id="color">
-                        <option selected disabled>Select Color</option>
-                       
-                        
-                        <option value="{{$row->colour}}"> red </option>
-                    </select>
-                </form>
+        </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <a href="#">
+            <div class="card  text-center " >
+            <div class="card-body pb-50">
+            <h3 style="margin-top: 20px;" >Total <strong>Template</strong> </h3> 
+            <h2 class="font-weight-bolder mb-1" style="margin-top: 30px;" > 2 </h2>
             </div>
-            <div style="width:180px" class=" col-md-2 " style="margin-top: 20px;">
-                <form action="" method="GET">
-                    <select style="width:170px" name="size" class="form-control" id="size">
-                        <option selected disabled>Select Size</option>
-                        <option value="{{$sizes->size}}">  </option>
-                    </select>
-                </form>
             </div>
-            <div style="width:180px" class=" col-md-2 " style="margin-top: 20px;">
-                <form action="" method="GET">
-                    <select style="width:170px" name="style" class="form-control" id="style">
-                        <option selected disabled>Select Style</option>
-
-                       
-                        <option value="{{$row->styleNumber}}"> 38 </option>
-                    
-                    </select>
-                </form>
-            </div>
-            <div style="width:180px" class=" col-md-2" style="margin-top: 20px;">
-                <form action="" method="GET">
-                 
-                    <select style="width:170px" name="category" class="form-control" id="category">
-                        <option selected disabled>Select Collection</option>
-                     
-                        <option value="{{$item->id}}"> real bride </option>
-                     
-                    </select>
-                </form>
-            </div>
+        </a>
         </div>
 
 
-      
-     
+        <div class="block-title">
 
-      
-
-
-    </div>
-
-    <!-- END All Products Title -->
-
-
-
-    <!-- All Products Content -->
-
-    <table id="ecom-products" class="table table-bordered table-striped table-vcenter">
-
-        <thead>
-
+            <h2><strong>Email</strong> Templates </h2>
+           
+            </div>
+        <div class="table-responsive table-responsive-lg table-responsive-md table-responsive-sm table-responsive-xs">
+            <table id="ecom-products" class="table table-bordered table-striped table-vcenter">
+            <thead>
             <tr>
-
-                <th class="text-center" style="width: 70px;">ID</th>
-
-                <th class="text-center">Product Name</th>
-
-                <th class="text-center">Style Number</th>
-
-                <th class="text-center">WholeSale Price</th>
-
-                <th class="text-center">Retailer Price</th>
-
-                <th class="text-center">Stock</th>
-
-                <th class="text-center">Status</th>
-
-                <th class="text-center">Tag</th>
-
-                <th class="text-center">Added</th>
-
-                <th class="text-center">Action</th>
-
+            <th class="text-center">Name</th>
+            <th class="text-center">Subject</th>
+            <th class="text-center">Message</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Added</th>
+            <th class="text-center">Action</th>
             </tr>
-
-        </thead>
-
-        <tbody>
-
-
-
-
+            </thead>
+            <tbody>
+            
             <tr>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;"> PID.10 </a> </td>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;"> Real Bride  </a> </td>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;"> fdgdfh65454fgh	</a></td>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;"> $25	  </a> </td>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;">  $32	</a> </td>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;"> $32	  </a> </td>
-
-                <td class="text-center">
-
-                    <span class="label label-success"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black; background-color: green;"> active </a> </span>
-
-                </td>
-
-
-
-
-
-                <td class="text-center">
-
-               
-                    <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black; background-color: red;">
-                        New
-                    </a>
-                </td>
-
-
-
-
-
-                <td class="text-center">2020-12-22 11:21:11</td>
-
-                <td class="text-center">
-
-                    <div class="btn-group btn-group-xs">
-
-                        <a href="edit-product.html" data-toggle="tooltip" title="Edit" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-
-                        <a href="{{route('delete', array('id' => $row->id))}}" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
-
-                    </div>
-
-                </td>
-
+            <td class="text-center">Signature	</td>
+            <td class="text-center">End of Email	            </td>
+            <td class="text-center"> </td>
+            <td class="text-center">Active	</td>
+            <td class="text-center">2020-12-22 17:17:46	            </td>
+            <td class="text-center">
+            <div class="btn-group btn-group-xs">
+            <a href="{{route('template_edit',array('id' => $row->id))}}" data-toggle="tooltip" title="Edit" class="btn btn-secondary"><i class="fa fa-pencil"></i></a>
+            <a href="{{route('template_stat',array('id' => $row->id, 'value'=>2))}}" data-toggle="tooltip" title="In Active" class="btn btn-danger"><i class="fa fa-times"></i></a>
+            <a href="{{route('template_stat',array('id' => $row->id, 'value'=>1))}}" data-toggle="tooltip" title="Active" class="btn btn-success"><i class="fa fa-check"></i></a>
+             
+            </div>
+            </td>
             </tr>
-
-          
+           
+            </tbody>
+            </table>
+            </div>
         
-
-        </tbody>
-
-    </table>
-
-    <!-- END All Products Content -->
-
-</div>
+       
+        </div>
 
 
-</div>
+
 </section>
 <!-- Dashboard Ecommerce ends -->
 
@@ -595,7 +437,45 @@ height: 14
 </script>
 <script src="https://use.fontawesome.com/a4efe5b4ba.js"></script>
 
-
+<script src="js/pages/ecomProducts.js"></script>
+<script>$(function(){ EcomProducts.init(); });</script>
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Category</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+    <form action="{{route('category')}}" method="POST" enctype="multipart/form-data">
+    
+    <div class="row">
+   
+    <div class="form-group col-md-12">
+    <label class="col-md-12 control-label"> Enter New Category <span style="color: red"> * </span></label>
+    <div class="col-md-12">
+    <input type="text" placeholder="Enter Category" name="category" class="form-control" required>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="form-group">
+        <label class="col-md-12 control-label">Category Image <span style="color: red"> * </span></label>
+        <div class="col-md-12">
+        <input type="file" name="first" class="form-control-file btn btn-primary" required>
+        </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+    <input type="button" class="btn btn-secondary" value="Close" data-dismiss="modal">
+    <input type="submit" name="sendCategory" value="Submit" class="btn btn-primary"> 
+    </form>
+    </div>
+    </div>
+    </div>
+ </div>
 </body>
 <!-- END: Body-->
 

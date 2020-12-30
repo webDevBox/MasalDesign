@@ -305,247 +305,315 @@
 <div class="content-body">
 <!-- Dashboard Ecommerce Starts -->
 <section id="dashboard-ecommerce">
-
+    <div class="row">
+        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 offset-md-1">
+        <!-- General Data Block -->
+        <div class="block">
+        <!-- General Data Title -->
+        <div class="block-title">
+        <h2><i class="fa fa-pencil"></i> <strong>General</strong> Data</h2>
+        <p class="alert {{ Session::get('alert-class', 'alert-success') }}"></p>
+        <p class="alert {{ Session::get('alert-class', 'alert-danger') }}"></p>
+        </div>
+        <!-- END General Data Title -->
         
-        <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-
-            <div class="modal-dialog row" role="document">
+        <!-- General Data Content -->
+        <form action="{{route('editor')}}" method="post" class="form-horizontal form-bordered" enctype="multipart/form-data">
+        <div class="form-group" style="display: none">
+            <div class="col-md-9">
+            <input type="number" id="product_name" value="{{$product->id}}" name="id" class="form-control">
+            </div>
+            </div>
+        <div class="form-group">
+        <label class="col-md-3 control-label" for="product_name">Name</label>
+        <div class="col-md-9">
+        <input type="text" id="product_name" value=""  value="{{ old('product_name') }}" name="product_name" class="form-control">
+        </div>
+        </div>
         
-                <div class="modal-content col-md-12" >
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="product_name">Keywords</label>
+            <div class="col-md-9">
+            <input type="text" id="product_name" value="" value="{{ old('key') }}" name="key" class="form-control" placeholder="Enter product Keyword with , Separation.." required>
+            </div>
+            </div>
         
-                    <div class="modal-header">
+        <div class="form-group  ">
+        <label class="col-md-3 control-label" for="product_description">Description</label>
+        <div class="col-md-9">
+        <textarea rows="5" id="product_description" name="product_description" class="form-control ckeditor"></textarea>
         
-                        <h5 class="modal-title" id="exampleModalLabel">Top Selling Products</h5>
-        
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        
-                            <span aria-hidden="true">&times;</span>
-        
-                        </button>
-        
-                    </div>
-        
-                    <div class="modal-body " >
-                            <div class="table-responsive">
-                        <table id="ecom-products " class="table table-bordered table-striped table-vcenter">
-        
-                            <thead>
-        
-                                <tr>
-        
-                                    <th class="text-center" style="width: 70px;">ID</th>
-        
-                                    <th class="text-center">Product Name</th>
-        
-                                    <th class="text-center">Style Number</th>
-        
-                                    <th class="text-center">Sellings</th>
-        
-                                    <th class="text-center">Added</th>
-        
-                                </tr>
-        
-                            </thead>
-        
-                            <tbody>
-        
-                                
-        
-                               
-        
-                                
+    </div>
+        </div>
         
         
-                            </tbody>
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="product_description"> Category</label>
+            <div class="col-md-9">
+                <select class="form-control" name="category" required>
+                <option value="{{$row->id}}" @if($product-></option>
+                    <option disabled >No Category Available</option>
         
-                        </table>
-                    </div>
+                </select>
+            
+            </div>
+            </div>
         
-                    </div>
         
+            
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="product_description"> Tag</label>
+                <div class="col-md-9">
+                    <select class="form-control" name="tag">
+                        <option disabled selected>No Tag Selected</option>
+                        <option value="354545">No Tag</option>
+                    <option value="{{$row->name}}" ></option>
+                        <option disabled >No Tag Available</option>
+            
+                    </select>
+                
+                </div>
                 </div>
         
-            </div>
-        
-        </div>
-
-<div class="row match-height">
-<!-- Company Table Card -->
-<div class="block full">
-
-    <!-- All Products Title -->
-
-    <div class="block-title">
-
-
-
-
-        <div class="row">
-            <div  class="  col-md-2 " style="margin-top: 20px;">
-                <h2><strong>All Products</strong></h2>
-            </div>
-            <div  class="col-md-2 " style="margin-top: 20px;">
-                    <a href="{{route('products')}}" style="color: black;" name="all" id="all">
-                        <h2><strong>Show All</strong></h2>
-                    </a>
-            </div>
-            <div style="width:200px" class=" col-md-2" style="margin-top: 20px;">
-                <form action="" method="GET">
-                    <select style="width:200px" name="color" class="form-control" id="color">
-                        <option selected disabled>Select Color</option>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="product_description">Colour Swatches</label>
+                <div class="col-md-9">
+                    <select class="form-control" name="colour" required>
+                      
+                    <option value="{{$row->colour}}" ></option>
                        
-                        
-                        <option value="{{$row->colour}}"> red </option>
-                    </select>
-                </form>
-            </div>
-            <div style="width:180px" class=" col-md-2 " style="margin-top: 20px;">
-                <form action="" method="GET">
-                    <select style="width:170px" name="size" class="form-control" id="size">
-                        <option selected disabled>Select Size</option>
-                        <option value="{{$sizes->size}}">  </option>
-                    </select>
-                </form>
-            </div>
-            <div style="width:180px" class=" col-md-2 " style="margin-top: 20px;">
-                <form action="" method="GET">
-                    <select style="width:170px" name="style" class="form-control" id="style">
-                        <option selected disabled>Select Style</option>
-
-                       
-                        <option value="{{$row->styleNumber}}"> 38 </option>
+                        <option disabled >No Color Swatch Available</option>
                     
+            
                     </select>
-                </form>
+                
+                </div>
+                </div>
+        
+                
+        
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="product-short-description">Sizes</label>
+        
+                  
+                    <label for="vehicle1">
+                    <input style="margin-left:10px;" type="checkbox" class="sizero" name="size[]" value="{{$item->size}}">
+                    </label>
+                    </div>
+        
+        
+        
+        
+        
+        <div class="form-group">
+        <label class="col-md-3 control-label" for="product-price">Wholesale Price</label>
+        <div class="col-md-9">
+        <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-usd"></i></div>
+        <input type="number" id="product-price" value="{{$product->wholesalePrice}}" name="wholesale_price" class="form-control" placeholder="0,00">
+        
+        </div>
+        </div>
+        </div>
+        
+        <div class="form-group">
+        <label class="col-md-3 control-label" for="product-price">Retail Price</label>
+        <div class="col-md-9">
+        <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-usd"></i></div>
+        <input type="number" id="product-price" value="{{$product->retailerPrice}}" name="retail_price" class="form-control" placeholder="0,00">
+        
+        </div>
+        </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="product_name">Style Number</label>
+            <div class="col-md-9">
+            <input type="text" id="product_name" value="{{$product->styleNumber}}"  value="{{ old('style') }}" name="style" class="form-control">
             </div>
-            <div style="width:180px" class=" col-md-2" style="margin-top: 20px;">
-                <form action="" method="GET">
-                 
-                    <select style="width:170px" name="category" class="form-control" id="category">
-                        <option selected disabled>Select Collection</option>
-                     
-                        <option value="{{$item->id}}"> real bride </option>
-                     
-                    </select>
+        </div>
+        
+        <div class="form-group" style="display: none;">
+           
+            <input type="text" id="product_name" value="{{$product->styleNumber}}" name="check_style" class="form-control">
+            
+        </div>
+        
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="product-price">Stock</label>
+            <div class="col-md-9">
+            <input type="number" id="product-price" value="{{$product->stock}}" name="stock" class="form-control" placeholder="0,00">
+            
+            </div>
+        
+        
+        
+        
+        <div class="form-group">
+        <label class="col-md-3 control-label">Status</label>
+        <div class="col-md-9">
+        <label class="radio-inline" for="product_condition-new">
+        <input type="radio" id="product_condition-new" name="product_condition" value="active" @if($product->
+        </label>
+        <label class="radio-inline" for="product_condition-used">
+        <input type="radio" id="product_condition-used" name="product_condition" value="inactive"  @if($product->
+        </label>
+        </div>
+        
+        </div>
+        
+        
+       
+        
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="product-short-description">Additional Changes</label>
+        
+            <label for="vehicle1">
+            <input style="margin-left:10px;" type="checkbox" class="addition" name="addition[]" value="{{$item->additional}}">
+                 </label>
+            
+            
+        
+            
+            
+            </div>
+        
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="product-short-description">Additional Changes</label>
+            
+               
+                <label for="vehicle1">
+                <input style="margin-left:10px;" type="checkbox" class="addition" name="addition[]" value="{{$item->additional}}">
+                 </label>
+                
+                </div>
+            
+        
+        
+        
+        
+        <div class="form-group form-actions">
+        <div class="col-md-9 col-md-offset-3">
+        <button type="submit"  name="send" value="send" class="btn btn-sm btn-primary submitter" title="Update"><i class="fa fa-floppy-o"></i> Update</button>
+        </div>
+        </div>
+        </form>
+        
+        <!-- END General Data Content -->
+        </div>
+        <!-- END General Data Block -->
+        </div>
+        
+        </div>
+        <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+            <div class="row">
+            <div id="delbutton" class="col-md-5" style="background:url(masal.png);  background-size:cover; margin-top:10px; height:350px;" >
+              
+               <a href="{{route('del_image',array('id'=>$product->id, 'value'=>'image1'))}}"> <button id="deler" style="display: none;" class="btn btn-danger"> Delete </button> </a>
+               
+            </div>
+            <div id="chooser" class="col-md-5 offset-md-1" style="background:url(masal.png);  background-size:cover; margin-top:10px; height:350px;" >
+              
+            <form style="display: none;" id="form" action="{{route('imgUploader')}}" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="image1" class="form-control btn btn-primary" required>
+                    <input type="text" value="{{$product->id}}" name="id" style="display:none;">
+                    <input type="submit" name="img_upload" value="Upload" class="btn btn-primary"> 
+        
                 </form>
+                
+             </div>
+                
+             <div id="delbutton" class="col-md-5" style="background:url(masal.png);  background-size:cover; margin-top:10px; height:350px;" >
+              
+                <a href="{{route('del_image',array('id'=>$product->id, 'value'=>'image1'))}}"> <button id="deler" style="display: none;" class="btn btn-danger"> Delete </button> </a>
+                
+             </div>
+             <div id="chooser" class="col-md-5  offset-md-1" style="background:url(masal.png);  background-size:cover; margin-top:10px; height:350px;" >
+               
+             <form style="display: none;" id="form" action="{{route('imgUploader')}}" method="POST" enctype="multipart/form-data">
+                     <input type="file" name="image1" class="form-control btn btn-primary" required>
+                     <input type="text" value="{{$product->id}}" name="id" style="display:none;">
+                     <input type="submit" name="img_upload" value="Upload" class="btn btn-primary"> 
+         
+                 </form>
+                 
+              </div>
+                
+                
+              <div id="delbutton" class="col-md-5" style="background:url(masal.png);  background-size:cover; margin-top:10px; height:350px;" >
+              
+                <a href="{{route('del_image',array('id'=>$product->id, 'value'=>'image1'))}}"> <button id="deler" style="display: none;" class="btn btn-danger"> Delete </button> </a>
+                
+             </div>
+             <div id="chooser" class="col-md-5 offset-md-1" style="background:url(masal.png);  background-size:cover; margin-top:10px; height:350px;" >
+               
+             <form style="display: none;" id="form" action="{{route('imgUploader')}}" method="POST" enctype="multipart/form-data">
+                     <input type="file" name="image1" class="form-control btn btn-primary" required>
+                     <input type="text" value="{{$product->id}}" name="id" style="display:none;">
+                     <input type="submit" name="img_upload" value="Upload" class="btn btn-primary"> 
+         
+                 </form>
+                 
+              </div>
+                     
+                
+              <div id="delbutton" class="col-md-5" style="background:url(masal.png);  background-size:cover; margin-top:10px; height:350px;" >
+              
+                <a href="{{route('del_image',array('id'=>$product->id, 'value'=>'image1'))}}"> <button id="deler" style="display: none;" class="btn btn-danger"> Delete </button> </a>
+                
+             </div>
+             <div id="chooser" class="col-md-5 offset-md-1" style="background:url(masal.png);  background-size:cover; margin-top:10px; height:350px;" >
+               
+             <form style="display: none;" id="form" action="{{route('imgUploader')}}" method="POST" enctype="multipart/form-data">
+                     <input type="file" name="image1" class="form-control btn btn-primary" required>
+                     <input type="text" value="{{$product->id}}" name="id" style="display:none;">
+                     <input type="submit" name="img_upload" value="Upload" class="btn btn-primary"> 
+         
+                 </form>
+                 
+              </div>
+                     
+                
+                
+              <div id="delbutton" class="col-md-5" style="background:url(masal.png);  background-size:cover; margin-top:10px; height:350px;" >
+              
+                <a href="{{route('del_image',array('id'=>$product->id, 'value'=>'image1'))}}"> <button id="deler" style="display: none;" class="btn btn-danger"> Delete </button> </a>
+                
+             </div>
+             <div id="chooser" class="col-md-5 offset-md-1" style="background:url(masal.png);  background-size:cover; margin-top:10px; height:350px;" >
+               
+             <form style="display: none;" id="form" action="{{route('imgUploader')}}" method="POST" enctype="multipart/form-data">
+                     <input type="file" name="image1" class="form-control btn btn-primary" required>
+                     <input type="text" value="{{$product->id}}" name="id" style="display:none;">
+                     <input type="submit" name="img_upload" value="Upload" class="btn btn-primary"> 
+         
+                 </form>
+                 
+              </div>
+                
+                
+               <div id="delbutton" class="col-md-5" style="background:url(masal.png);  background-size:cover; margin-top:10px; height:350px;" >
+              
+               <a href="{{route('del_image',array('id'=>$product->id, 'value'=>'image1'))}}"> <button id="deler" style="display: none;" class="btn btn-danger"> Delete </button> </a>
+               
+            </div>
+            <div id="chooser" class="col-md-5 offset-md-1" style="background:url(masal.png);  background-size:cover; margin-top:10px; height:350px;" >
+              
+            <form style="display: none;" id="form" action="{{route('imgUploader')}}" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="image1" class="form-control btn btn-primary" required>
+                    <input type="text" value="{{$product->id}}" name="id" style="display:none;">
+                    <input type="submit" name="img_upload" value="Upload" class="btn btn-primary"> 
+        
+                </form>
+                
+             </div>
+              
             </div>
         </div>
 
 
-      
-     
 
-      
-
-
-    </div>
-
-    <!-- END All Products Title -->
-
-
-
-    <!-- All Products Content -->
-
-    <table id="ecom-products" class="table table-bordered table-striped table-vcenter">
-
-        <thead>
-
-            <tr>
-
-                <th class="text-center" style="width: 70px;">ID</th>
-
-                <th class="text-center">Product Name</th>
-
-                <th class="text-center">Style Number</th>
-
-                <th class="text-center">WholeSale Price</th>
-
-                <th class="text-center">Retailer Price</th>
-
-                <th class="text-center">Stock</th>
-
-                <th class="text-center">Status</th>
-
-                <th class="text-center">Tag</th>
-
-                <th class="text-center">Added</th>
-
-                <th class="text-center">Action</th>
-
-            </tr>
-
-        </thead>
-
-        <tbody>
-
-
-
-
-            <tr>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;"> PID.10 </a> </td>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;"> Real Bride  </a> </td>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;"> fdgdfh65454fgh	</a></td>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;"> $25	  </a> </td>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;">  $32	</a> </td>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;"> $32	  </a> </td>
-
-                <td class="text-center">
-
-                    <span class="label label-success"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black; background-color: green;"> active </a> </span>
-
-                </td>
-
-
-
-
-
-                <td class="text-center">
-
-               
-                    <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black; background-color: red;">
-                        New
-                    </a>
-                </td>
-
-
-
-
-
-                <td class="text-center">2020-12-22 11:21:11</td>
-
-                <td class="text-center">
-
-                    <div class="btn-group btn-group-xs">
-
-                        <a href="edit-product.html" data-toggle="tooltip" title="Edit" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-
-                        <a href="{{route('delete', array('id' => $row->id))}}" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
-
-                    </div>
-
-                </td>
-
-            </tr>
-
-          
-        
-
-        </tbody>
-
-    </table>
-
-    <!-- END All Products Content -->
-
-</div>
-
-
-</div>
 </section>
 <!-- Dashboard Ecommerce ends -->
 
@@ -595,7 +663,45 @@ height: 14
 </script>
 <script src="https://use.fontawesome.com/a4efe5b4ba.js"></script>
 
-
+<script src="js/pages/ecomProducts.js"></script>
+<script>$(function(){ EcomProducts.init(); });</script>
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Category</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+    <form action="{{route('category')}}" method="POST" enctype="multipart/form-data">
+    
+    <div class="row">
+   
+    <div class="form-group col-md-12">
+    <label class="col-md-12 control-label"> Enter New Category <span style="color: red"> * </span></label>
+    <div class="col-md-12">
+    <input type="text" placeholder="Enter Category" name="category" class="form-control" required>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="form-group">
+        <label class="col-md-12 control-label">Category Image <span style="color: red"> * </span></label>
+        <div class="col-md-12">
+        <input type="file" name="first" class="form-control-file btn btn-primary" required>
+        </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+    <input type="button" class="btn btn-secondary" value="Close" data-dismiss="modal">
+    <input type="submit" name="sendCategory" value="Submit" class="btn btn-primary"> 
+    </form>
+    </div>
+    </div>
+    </div>
+ </div>
 </body>
 <!-- END: Body-->
 
