@@ -305,81 +305,70 @@
 <div class="content-body">
 <!-- Dashboard Ecommerce Starts -->
 <section id="dashboard-ecommerce">
-    
-        <div class="row match-height">
-        <!-- Bar Chart - Orders -->
-       
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <a href="#" data-toggle="modal" data-target="#exampleModal2">
-        <div class="card  text-center " >
-        <div class="card-body pb-50">
-        <h3 style="margin-top: 20px;" >Add New <strong>Sales Tag</strong></h3> 
-        <h2 class="font-weight-bolder mb-1" style="margin-top: 30px;" > <i class="fa fa-plus" aria-hidden="true"></i> </h2>
-        <!-- <div id="statistics-order-chart"></div> -->
-        </div>
-        </div>
-    </a>
-        </div>
-    
 
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <a href="#">
-            <div class="card  text-center " >
-            <div class="card-body pb-50">
-            <h3 style="margin-top: 20px;" >Total <strong>Sizes</strong> </h3> 
-            <h2 class="font-weight-bolder mb-1" style="margin-top: 30px;" > 2 </h2>
-            </div>
-            </div>
-        </a>
-        </div>
-
-
-            <!-- All Products Title -->
-            <div class="block-title">
-             
-                
-                <h2><strong>All</strong> Tags</h2>
-                   </div>
-            <!-- END All Products Title -->
+    <div class="block full">
+        <!-- All Products Title -->
+        <div class="block-title">
+         
             
-            <!-- All Products Content -->
-            <table id="ecom-products" class="table table-bordered table-striped table-vcenter">
-                <thead>
-                    <tr>
-                        <th class="text-center">Sale Name</th>
-                        <th class="text-center">Background Color</th>
-                        <th class="text-center">Added</th>
-                        <th class="text-center">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-            
-                  
-                    <tr>
-                        <td class="text-center">New</td>
-                        <td class="text-center">  <a href="" data-toggle="tooltip"  class="btn btn-default " style="background-color:red; height: 30px; width: 30px; ">
-                            <i class=""></i>
-                        </a> </td>
-                        <td class="text-center">2020-10-21 12:39:37</td>
-                        <td class="text-center">
-                            <div class="btn-group btn-group-xs">
-                                <a href="edit-sale.html" data-toggle="tooltip" title="Edit" class="btn btn-primary">
-                                    <i class="fa fa-pencil"></i>
-                                </a>
-                                <a href="" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                   
-                </tbody>
-            </table>
-            <!-- END All Products Content -->
+            <h2><strong>All</strong> Menus</h2>
         
-       
+    <p class="alert {{ Session::get('alert-class', 'alert-success') }}"></p>
+   
+      
         </div>
-
-
-
+        <!-- END All Products Title -->
+        
+        <!-- All Products Content -->
+        <table id="ecom-products" class="table table-bordered table-striped table-vcenter">
+            <thead>
+                <tr>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Header</th>
+                    <th class="text-center">Footer</th>
+    
+                </tr>
+            </thead>
+            <tbody>
+        
+                <tr>
+                    <td class="text-center"> <Strong>Home</Strong> </td>
+                    
+                    <td class="text-center">
+                        <div class="btn-group btn-group-xs">
+                            <a href="{{route('header', array('id' => $row->id,'value'=>2))}}" title="Inactive" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                            <a href="{{route('header', array('id' => $row->id,'value'=>1))}}" title="Active" class="btn btn-xs btn-primary"><i class="fa fa-check-circle-o" aria-hidden="true"></i></a>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <div class="btn-group btn-group-xs">
+                            <a href="{{route('footer', array('id' => $row->id,'value'=>2))}}" title="Inactive" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                            <a href="{{route('footer', array('id' => $row->id,'value'=>1))}}" title="Active" class="btn btn-xs btn-primary"><i class="fa fa-check-circle-o" aria-hidden="true"></i></a>
+                        </div>
+                    </td>
+                </tr>
+             
+                <tr>
+                    <td class="text-center"> <Strong>The Brand		                    </Strong> </td>
+                    
+                    <td class="text-center">
+                        <div class="btn-group btn-group-xs">
+                            <a href="{{route('header', array('id' => $row->id,'value'=>2))}}" title="Inactive" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                            <a href="{{route('header', array('id' => $row->id,'value'=>1))}}" title="Active" class="btn btn-xs btn-primary"><i class="fa fa-check-circle-o" aria-hidden="true"></i></a>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <div class="btn-group btn-group-xs">
+                            <a href="{{route('footer', array('id' => $row->id,'value'=>2))}}" title="Inactive" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                            <a href="{{route('footer', array('id' => $row->id,'value'=>1))}}" title="Active" class="btn btn-xs btn-primary"><i class="fa fa-check-circle-o" aria-hidden="true"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- END All Products Content -->
+        </div>
+        
 </section>
 <!-- Dashboard Ecommerce ends -->
 
@@ -435,32 +424,34 @@ height: 14
     <div class="modal-dialog" role="document">
     <div class="modal-content">
     <div class="modal-header">
-    <h3 class="modal-title" id="exampleModalLabel">Sale</h3>
+    <h5 class="modal-title" id="exampleModalLabel">Sleeve </h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
     </button>
     </div>
     <div class="modal-body">
-    <form action="{{route('add_sale')}}" method="POST">
+    <form action="{{route('Sleeve ')}}" method="POST" enctype="multipart/form-data">
     
+    <div class="row">
    
-    <div class="form-group row">
-    <label class="col-md-5 control-label"> Enter Sale Tag Name  </label>
-    <div class="col-md-7">
-    <input type="text" placeholder="Enter Tag Name" name="sale" class="form-control" required>
+    <div class="form-group col-md-12">
+    <label class="col-md-12 control-label"> Enter New Sleeve  <span style="color: red"> * </span></label>
+    <div class="col-md-12">
+    <input type="text" placeholder="Enter Sleeve " name="Sleeve " class="form-control" required>
     </div>
     </div>
-
-    <div class="form-group row">
-        <label class="col-md-5 control-label"> Select Sale Tag Color </label>
-        <div class="col-md-7">
-        <input type="color" name="color" class="form-control" required>
+    </div>
+    <div class="row">
+    <div class="form-group">
+        <label class="col-md-12 control-label">Sleeve  Image <span style="color: red"> * </span></label>
+        <div class="col-md-12">
+        <input type="file" name="first" class="form-control-file btn btn-primary" required>
         </div>
         </div>
-
+    </div>
     <div class="modal-footer">
     <input type="button" class="btn btn-secondary" value="Close" data-dismiss="modal">
-    <input type="submit" name="upload" value="Submit" class="btn btn-primary"> 
+    <input type="submit" name="sendSleeve " value="Submit" class="btn btn-primary"> 
     </form>
     </div>
     </div>

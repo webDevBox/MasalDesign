@@ -419,21 +419,22 @@
                 
            
         <tr>
-        <td class="text-center"></td>
-        <td class="text-center"><strong></strong></td>
-        <td class="text-center"><strong></strong></td>
-        <td class="text-center"><strong></strong></td>
+        <td class="text-center">TwoBirds Bridal	</td>
+        <td class="text-center"><strong>muhammadmoeez64@gmail.com	</strong></td>
+        <td class="text-center"><strong>545	</strong></td>
+        <td class="text-center"><strong>Pakistan	</strong></td>
         <td class="text-center">
-        <span class="label label-success">
-           
+        <span class="label label-success" style="background-color: greenyellow; ">
+            Active	
         </span>
         </td>
-        <td class="hidden-xs text-center"></td>
+        <td class="hidden-xs text-center">2020-11-26 04:30:26	
+        </td>
         <td class="text-center">
         <div class="btn-group btn-group-xs">
-       <a href="{{route('send_email',array('id' => $row->id))}}" data-toggle="tooltip" title="Send Email" class="btn btn-default"><i class="fa fa-envelope"></i></a> 
-        <a href="#mailpop" data-toggle="modal" title="Send Email" id="{{ $row->id }}" class="btn btn-default clicker"><i class="fa fa-envelope"></i></a>
-        <a href="#mailnew" data-toggle="modal" title="Send Email" id="{{ $row->id }}" class="btn btn-default clicker"><i class="fa fa-envelope-o">+</i></a>
+  
+        <a href="#mailpop" data-toggle="modal" title="Send Email" id="{{ $row->id }}" class="btn btn-primary clicker"><i class="fa fa-envelope"></i></a>
+        <a href="#mailnew" data-toggle="modal" title="New Email" id="{{ $row->id }}" class="btn btn-secondary clicker"><i class="fa fa-envelope-o">+</i></a>
         </div>
         </td>
         <div id="mailpop" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
