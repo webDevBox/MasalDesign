@@ -296,7 +296,6 @@
 <!-- END: Main Menu-->
 
 <!-- BEGIN: Content-->
-
 <div class="app-content content ">
 <div class="content-overlay"></div>
 <div class="header-navbar-shadow"></div>
@@ -305,160 +304,122 @@
 </div>
 <div class="content-body">
 <!-- Dashboard Ecommerce Starts -->
-<section id="dashboard-ecommerce">
+<section class="nicdark_section">
+<!--start nicdark_container-->
+<div class="nicdark_container nicdark_clearfix">
+<div class="grid grid_12">
 
-    <div class="row">
-        <div  class="col-md-3 " style="margin-bottom: 10px;">
-            <h2><strong>All Products</strong></h2>
-        </div>
+<h1 class="text-center"><span class="grey">—</span> Edit Retailer  <span class="grey">—</span></h1>
+@if(Session::has('success'))
+<p class="alert {{ Session::get('alert-class', 'alert-success') }}">{{ Session::get('success') }}</p>
+@endif
+@if(Session::has('error'))
+<p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('error') }}</p>
+@endif
+@if ($errors->has('email')) <p style="color:red;">{{ $errors->first('email') }}</p> @endif
+@if ($errors->has('password')) <p style="color:red;">{{ $errors->first('password') }}</p> @endif
+<div class="nicdark_space20"></div>
 
-        <div class="col-md-1" >
-                <a href="{{route('products')}}" name="all" id="all">
-                    <h4>Show All</h4>
-                </a>
+<form action="{{route('stokisteditor')}}" method="POST" style="width: 50%; margin-left:25%;">
+@csrf
+<div class="row">
+    <div class="form-group col-md-12 col-sm-12" style="display: none">
+        <input type="text" value="{{ $Stokist->id }}" name="id" class="form-control" id="Shop Name">
         </div>
+<div class="form-group col-md-12 col-sm-12">
+<label for="">Name of Contact <span style="color: red;">*</span></label>
+<input type="text" value="{{ $Stokist->name }}" name="name" class="form-control" id="Shop Name" placeholder="Contact Name" required>
+@if ($errors->has('contact')) <p style="color:red;">{{ $errors->first('contact') }}</p> @endif 
+</div>
+<div class="form-group col-md-12 col-sm-12">
+<label for="">Email <span style="color: red;">*</span></label>
+<input type="email" value="{{  $Stokist->email }}" name="email" class="form-control" id="Shop Name" placeholder="Your Email" required>
+@if ($errors->has('email')) <p style="color:red;">{{ $errors->first('email') }}</p> @endif 
+</div>
 
-        <div  class="col-md-2" style="margin-bottom: 10px;">
-            <form action="" method="GET">
-                <select  name="color" class="form-control" id="color">
-                    <option selected disabled>Select Color</option>
-                   
-                    
-                    <option value="{{$row->colour}}"> red </option>
-                </select>
-            </form>
-        </div>
+<div class="form-group col-md-12 col-sm-12">
+<label for="">Business Phone Number<span style="color: red;">*</span></label>
+<input type="tel" name="phone" value="{{  $Stokist->phone }}" class="form-control" id="Shop Name" placeholder="Your Phone Number" required>
+@if ($errors->has('phone')) <p style="color:red;">{{ $errors->first('phone') }}</p> @endif 
 
-        <div class=" col-md-2" style="margin-bottom: 10px;">
-            <form action="" method="GET">
-                <select name="size" class="form-control" id="size">
-                    <option selected disabled>Select Size</option>
-                    <option value="{{$sizes->size}}">  </option>
-                </select>
-            </form>
-        </div>
+</div>
+<div class="form-group col-md-12 col-sm-12">
+<label for="">Business Address  <span style="color: red;">*</span></label>
+<input type="text" name="address" value="{{  $Stokist->address }}" class="form-control" id="Shop Name" placeholder="Your Location" required>
+@if ($errors->has('address')) <p style="color:red;">{{ $errors->first('address') }}</p> @endif 
 
-        <div  class=" col-md-2" style="margin-bottom: 10px;">
-            <form action="" method="GET">
-                <select name="style" class="form-control" id="style">
-                    <option selected disabled>Select Style</option>
-                    <option value="{{$row->styleNumber}}"> 38 </option>
-                </select>
-            </form>
-        </div>
+</div>
 
-        <div  class=" col-md-2" style="margin-bottom: 10px;">
-            <form action="" method="GET">
-                <select name="category" class="form-control" id="category">
-                    <option selected disabled>Select Collection</option>
-                    <option value="{{$item->id}}"> real bride </option>
-                </select>
-            </form>
-        </div>
-        
+<div class="form-group col-md-12 col-sm-12">
+<label for="">Country <span style="color: red;">*</span></label>
+<input type="text" name="country" value="{{  $Stokist->country }}" class="form-control" id="Shop Name" placeholder="Your Country" required>
+@if ($errors->has('country')) <p style="color:red;">{{ $errors->first('country') }}</p> @endif 
+
+</div>
+
+<div class="form-group col-md-12 col-sm-12">
+<label for="">State <span style="color: red;">*</span></label>
+<input type="text" name="state" value="{{  $Stokist->state }}" class="form-control" id="Shop Name" placeholder="Your State" required>
+@if ($errors->has('state')) <p style="color:red;">{{ $errors->first('state') }}</p> @endif 
+
+</div>
+
+<div class="form-group col-md-12 col-sm-12">
+<label for="">City <span style="color: red;">*</span></label>
+<input type="text" name="city" value="{{  $Stokist->city }}" class="form-control" id="Shop Name" placeholder="Your City" required>
+@if ($errors->has('emcityail')) <p style="color:red;">{{ $errors->first('city') }}</p> @endif 
+
+</div>
+<div class="form-group col-md-12 col-sm-12">
+<label for="">Business Registration Number<span style="color: red;">*</span></label>
+<input type="number" value="{{  $Stokist->registrationNumber }}" name="registrationNumber" class="form-control" id="Shop Name" placeholder="Your Unique Registration Number" required>
+@if ($errors->has('registration')) <p style="color:red;">{{ $errors->first('registration') }}</p> @endif 
+
+</div>
+
+
+<div class="form-group col-md-12 col-sm-12">
+    <label for="">Account Status<span style="color: red;">*</span></label>
+<select class="form-control" name="status">
+    <option @if($Stokist->status == 1) selected @endif value="1"> Approved </option>
+    <option @if($Stokist->status == 2) selected @endif value="2"> Rejected </option>
+    <option @if($Stokist->status == 3) selected @endif value="3"> Deleted </option>
+</select>
+    @if ($errors->has('status')) <p style="color:red;">{{ $errors->first('status') }}</p> @endif 
+    
     </div>
-    
 
-<div class="row match-height">
-    
-    <table id="ecom-products" class="table table-bordered table-striped table-vcenter">
+<div class="form-group col-md-12 col-sm-12">
+<label for="">Website <span style="color: red;">*</span></label>
+<input type="text" value="{{  $Stokist->website }}" name="website" class="form-control" id="Shop Name" placeholder="Your Website" required>
+@if ($errors->has('website')) <p style="color:red;">{{ $errors->first('website') }}</p> @endif 
 
-        <thead>
+</div>
+<div class="form-group col-md-12 col-sm-12">
+<label for="">Facebook <span style="color: red;">*</span></label>
+<input type="text" value="{{  $Stokist->facebook }}" name="facebook" class="form-control" id="Shop Name" placeholder="Your Facebook Link" required>
+@if ($errors->has('facebook')) <p style="color:red;">{{ $errors->first('facebook') }}</p> @endif 
 
-            <tr>
+</div>
+<div class="form-group col-md-12 col-sm-12">
+<label for="">Instagram <span style="color: red;">*</span></label>
+<input type="text" value="{{ $Stokist->instagram }}" name="Instagram" class="form-control" id="Shop Name" placeholder="Your Instagram Link" required>
+@if ($errors->has('Instagram')) <p style="color:red;">{{ $errors->first('Instagram') }}</p> @endif 
 
-                <th class="text-center" style="width: 70px;">ID</th>
-
-                <th class="text-center">Product Name</th>
-
-                <th class="text-center">Style Number</th>
-
-                <th class="text-center">WholeSale Price</th>
-
-                <th class="text-center">Retailer Price</th>
-
-                <th class="text-center">Stock</th>
-
-                <th class="text-center">Status</th>
-
-                <th class="text-center">Tag</th>
-
-                <th class="text-center">Added</th>
-
-                <th class="text-center">Action</th>
-
-            </tr>
-
-        </thead>
-
-        <tbody>
-
-
-
-
-            <tr>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;"> PID.10 </a> </td>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;"> Real Bride  </a> </td>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;"> fdgdfh65454fgh	</a></td>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;"> $25	  </a> </td>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;">  $32	</a> </td>
-
-                <td class="text-center"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black;"> $32	  </a> </td>
-
-                <td class="text-center">
-
-                    <span class="label label-success"> <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black; background-color: green;"> active </a> </span>
-
-                </td>
-
-
-
-
-
-                <td class="text-center">
-
-               
-                    <a href="{{route('edit_product', array('id' => $row->id))}}" style="color: black; background-color: red;">
-                        New
-                    </a>
-                </td>
-
-
-
-
-
-                <td class="text-center">2020-12-22 11:21:11</td>
-
-                <td class="text-center">
-
-                    <div class="btn-group btn-group-xs">
-
-                        <a href="edit-product.html" data-toggle="tooltip" title="Edit" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-
-                        <a href="{{route('delete', array('id' => $row->id))}}" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
-
-                    </div>
-
-                </td>
-
-            </tr>
-
-          
-        
-
-        </tbody>
-
-    </table>
-
-  
+</div>
 
 
 </div>
+<center>
+<input type="submit" name="update" value="UPDATE" class="btn btn-primary"> 
+</center>  
+</form>
+</div>
+
+
+</div>
+<!--end nicdark_container-->
+
 </section>
 <!-- Dashboard Ecommerce ends -->
 
@@ -508,7 +469,45 @@ height: 14
 </script>
 <script src="https://use.fontawesome.com/a4efe5b4ba.js"></script>
 
-
+<script src="js/pages/ecomProducts.js"></script>
+<script>$(function(){ EcomProducts.init(); });</script>
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Sleeve </h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+    <form action="{{route('Sleeve ')}}" method="POST" enctype="multipart/form-data">
+    
+    <div class="row">
+   
+    <div class="form-group col-md-12">
+    <label class="col-md-12 control-label"> Enter New Sleeve  <span style="color: red"> * </span></label>
+    <div class="col-md-12">
+    <input type="text" placeholder="Enter Sleeve " name="Sleeve " class="form-control" required>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="form-group">
+        <label class="col-md-12 control-label">Sleeve  Image <span style="color: red"> * </span></label>
+        <div class="col-md-12">
+        <input type="file" name="first" class="form-control-file btn btn-primary" required>
+        </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+    <input type="button" class="btn btn-secondary" value="Close" data-dismiss="modal">
+    <input type="submit" name="sendSleeve " value="Submit" class="btn btn-primary"> 
+    </form>
+    </div>
+    </div>
+    </div>
+ </div>
 </body>
 <!-- END: Body-->
 
